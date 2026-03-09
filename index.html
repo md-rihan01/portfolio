@@ -1,0 +1,685 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rihan Portfolio</title>
+  <meta name="description" content="Static Bootstrap version of Md Rihan's portfolio." />
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="rihan_favicon.svg">
+  <link rel="shortcut icon" href="rihan_favicon.svg" type="image/svg+xml">
+
+  <!-- Bootstrap CSS (Local) -->
+  <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons (CDN - for icon support) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-md fixed-top py-3" id="mainNav" aria-label="Main navigation">
+    <div class="container">
+
+      <!-- Left Logo -->
+      <a class="navbar-brand fw-bold" href="#home">
+        <span class="gradient-text">RIHAN</span>
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navCollapse"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navCollapse">
+
+        <!-- Center Menu -->
+        <ul class="navbar-nav mx-auto mb-2 mb-md-0 text-center gap-md-3">
+          <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+          <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+
+        <!-- Right Icon -->
+        <ul class="navbar-nav ms-md-3 align-items-center">
+          <li class="nav-item">
+            <button class="btn btn-outline-primary" id="themeToggle" aria-label="Toggle theme">
+              <i class="bi bi-moon-fill"></i>
+            </button>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- Hero -->
+  <header id="home" class="hero d-flex align-items-center" style="background-image: url(./assets/images/hero-bg.jpg);">
+    <div class="overlay"></div>
+    <div class="container text-center text-white position-relative z-2">
+      <p class="text-uppercase mb-2">Hello, I'm</p>
+      <h1 class="display-4 fw-bold">Md Rihan</h1>
+      <p class="lead mb-4">Transforming Ideas Into Fast, Modern & Responsive Websites</p>
+
+      <div class="d-flex flex-column flex-sm-row justify-content-center gap-3">
+        <a href="#portfolio" class="btn btn-primary btn-lg px-4">View My Work</a>
+        <a href="#contact" class="btn btn-outline-light btn-lg px-4">Get In Touch</a>
+      </div>
+
+      <div class="socials d-flex justify-content-center gap-2 mt-4">
+        <a href="https://www.linkedin.com/in/md-rihan-92b355252/" target="_blank" class="btn btn-outline-light rounded-circle p-2"
+          aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+        <a href="https://github.com/md-rihan01" target="_blank" class="btn btn-outline-light rounded-circle p-2" aria-label="GitHub"><i
+            class="bi bi-github"></i></a>
+        <a href="mailto:mohdrihan6314@gmail.com" class="btn btn-outline-light rounded-circle p-2" aria-label="Email"><i
+            class="bi bi-envelope-fill"></i></a>
+      </div>
+
+      <a href="#about" class="scroll-down d-block mt-5 text-white" aria-label="Scroll down"><i
+          class="bi bi-chevron-down fs-3"></i></a>
+    </div>
+  </header>
+
+  <!-- About -->
+  <section id="about" class="py-5">
+    <div class="container">
+      <div class="text-center mb-5">
+        <p class="text-uppercase gradient-text small mb-2">Get To Know Me</p>
+        <h2 class="fw-bold">About Me</h2>
+        <p class="text-muted">A detail-oriented Web Developer with a focus on performance, clean code, and seamless user
+          experiences.</p>
+      </div>
+
+      <div class="row g-4 align-items-stretch">
+        <div class="col-lg-6  d-flex">
+          <div class="card glass p-4 h-100 w-100">
+            <div class="d-flex align-items-center mb-3">
+              <div class="avatar me-3">MR</div>
+              <div>
+                <h5 class="mb-0">Md Rihan</h5>
+                <small class="text-muted">Web Developer</small>
+              </div>
+            </div>
+            <p class="text-muted">
+              I'm a detail-oriented Web Developer focused on building responsive, high-performance, and user-friendly
+              websites. I work with WordPress, PHP, JavaScript, jQuery, and modern UI/UX practices to create clean,
+              functional, and visually appealing digital experiences. I enjoy turning ideas into polished products
+              through thoughtful design and efficient development. I'm always exploring new tools and modern techniques
+              to improve workflow and deliver better results. My goal is to build experiences that not only look great
+              but also create real value for users and businesses.
+            </p>
+            <a href="./assets/cv/resume.pdf" target="_blank" download class="btn btn-primary mt-3"><i class="bi bi-download me-2"></i>Download Resume</a>
+
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="card glass p-4 h-100">
+            <h5>Technical Skills</h5>
+            <div class="mt-3">
+
+              <div class="mb-3 skill-row">
+                <div class="d-flex justify-content-between">
+                  <span>HTML5</span><small class="text-muted">95%</small>
+                </div>
+                <div class="progress">
+                  <div class="progress-bar bg-primary" role="progressbar" data-progress="95" style="width: 0%"></div>
+                </div>
+              </div>
+
+              <div class="mb-3 skill-row">
+                <div class="d-flex justify-content-between">
+                  <span>CSS3 / Bootstrap </span><small class="text-muted">90%</small>
+                </div>
+                <div class="progress">
+                  <div class="progress-bar bg-primary" role="progressbar" data-progress="90" style="width: 0%"></div>
+                </div>
+              </div>
+
+              <div class="mb-3 skill-row">
+                <div class="d-flex justify-content-between">
+                  <span>JavaScript / jQuery</span><small class="text-muted">85%</small>
+                </div>
+                <div class="progress">
+                  <div class="progress-bar bg-primary" role="progressbar" data-progress="85" style="width: 0%"></div>
+                </div>
+              </div>
+
+              <div class="mb-3 skill-row">
+                <div class="d-flex justify-content-between">
+                  <span>PHP / WordPress Development</span><small class="text-muted">88%</small>
+                </div>
+                <div class="progress">
+                  <div class="progress-bar bg-primary" role="progressbar" data-progress="88" style="width: 0%"></div>
+                </div>
+              </div>
+
+              <div class="mb-3 skill-row">
+                <div class="d-flex justify-content-between">
+                  <span>UI/UX Design & GSAP Animations</span><small class="text-muted">80%</small>
+                </div>
+                <div class="progress">
+                  <div class="progress-bar bg-primary" role="progressbar" data-progress="80" style="width: 0%"></div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-5 text-center">
+        <h4 class="mb-4">What I Do</h4>
+
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-3">
+
+          <!-- Web Development -->
+          <div class="col">
+            <div class="card glass p-3 text-center h-100 service-card">
+              <div class="icon d-flex justify-content-center mb-2">
+                <div class="avatar">
+                  <i class="bi bi-code-slash fs-4"></i>
+                </div>
+              </div>
+              <h6>Web Development</h6>
+              <p class="small text-muted">Building responsive and performant web applications with modern technologies.
+              </p>
+            </div>
+          </div>
+
+          <!-- UI/UX Design -->
+          <div class="col">
+            <div class="card glass p-3 text-center h-100 service-card">
+              <div class="icon d-flex justify-content-center mb-2">
+                <div class="avatar">
+                  <i class="bi bi-palette fs-4"></i>
+                </div>
+              </div>
+              <h6>UI/UX Design</h6>
+              <p class="small text-muted">Creating intuitive and visually appealing user interfaces that convert.</p>
+            </div>
+          </div>
+
+          <!-- Responsive Design -->
+          <div class="col">
+            <div class="card glass p-3 text-center h-100 service-card">
+              <div class="icon d-flex justify-content-center mb-2">
+                <div class="avatar">
+                  <i class="bi bi-phone fs-4"></i>
+                </div>
+              </div>
+              <h6>Responsive Design</h6>
+              <p class="small text-muted">Ensuring seamless experiences across all devices and screen sizes.</p>
+            </div>
+          </div>
+
+          <!-- SEO Optimization -->
+          <div class="col">
+            <div class="card glass p-3 text-center h-100 service-card">
+              <div class="icon d-flex justify-content-center mb-2">
+                <div class="avatar">
+                  <i class="bi bi-globe fs-4"></i>
+                </div>
+              </div>
+              <h6>SEO Optimization</h6>
+              <p class="small text-muted">Implementing best practices for search engine visibility and ranking.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section id="experience" class="py-5 bg-muted/30">
+    <div class="container">
+      <div class="text-center mb-5">
+        <p class="text-uppercase gradient-text small mb-2">Professional Journey</p>
+        <h2 class="fw-bold">Experience in Development</h2>
+        <p class="text-muted">Growing through hands-on development, UI/UX design, and continuous learning</p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-lg-8 mx-auto">
+
+          <!-- Experience Card 1 -->
+          <div class="card glass p-4 mb-4 border-start border-primary border-4">
+            <div class="d-flex justify-content-between align-items-start mb-2">
+              <div>
+                <h5 class="mb-0">Junior Developer – UI/UX / WordPress</h5>
+                <p class="gradient-text fs-5 mb-0">
+                  <a href="https://sharajman.com/" target="_blank" class="text-decoration-none">
+                    Sharajman Technologies Private Limited
+                  </a>
+                </p>
+              </div>
+              <span class="badge bg-primary">Present</span>
+            </div>
+
+            <p class="text-muted small mb-3">March 2024 – Present · New Delhi, India</p>
+
+            <!-- Responsibilities List -->
+            <ul class="list-unstyled text-muted small">
+              <li class="mb-2"><i class="bi bi-check-circle text-primary me-2"></i>Designed and developed responsive UI/UX components for websites and WordPress themes</li>
+              <li class="mb-2"><i class="bi bi-check-circle text-primary me-2"></i>Created custom WordPress themes, templates, and dynamic blocks following best practices</li>
+              <li class="mb-2"><i class="bi bi-check-circle text-primary me-2"></i>Improved website performance, accessibility, responsiveness, and SEO standards</li>
+              <li class="mb-2"><i class="bi bi-check-circle text-primary me-2"></i>Collaborated with cross-functional teams to understand requirements and deliver solutions</li>
+              <li><i class="bi bi-check-circle text-primary me-2"></i>Implemented UI animations using GSAP and modern JavaScript</li>
+            </ul>
+
+            <!-- ⭐ Achievement Description (ADDED) -->
+            <div class="d-flex gap-2">
+              <div class="fs-4">⭐</div>
+              <div class="flex-grow-1">
+                <h6 class="fw-bold text-primary mb-2">Rising Star Award</h6>
+                <p class="text-muted small mb-2">
+                  Honored to receive the <strong>"Rising Star" Award</strong> from Sharajman Technologies for outstanding contribution and dedication to excellence.
+                </p>
+                <a href="https://www.linkedin.com/feed/update/urn:li:activity:7388937752337244160/" 
+                  target="_blank" 
+                  class="btn btn-primary btn-sm">
+                  <i class="bi bi-linkedin me-1"></i>View Achievement
+                </a>
+              </div>
+            </div>
+
+            <!-- Skill Badges -->
+            <div class="mt-4">
+              <span class="badge bg-secondary me-1 mb-1">HTML/CSS</span>
+              <span class="badge bg-secondary me-1 mb-1">Bootstrap</span>
+              <span class="badge bg-secondary me-1 mb-1">JavaScript</span>
+              <span class="badge bg-secondary me-1 mb-1">jQuery</span>
+              <span class="badge bg-secondary me-1 mb-1">UI/UX</span>
+              <span class="badge bg-secondary me-1 mb-1">PHP</span>
+              <span class="badge bg-secondary me-1 mb-1">WordPress</span>
+            </div>
+          </div>
+
+          <!-- Experience Card 2 -->
+          <div class="card glass p-4 mb-4 border-start border-primary border-4">
+            <div class="d-flex justify-content-between align-items-start mb-2">
+              <div>
+                <h5 class="mb-0">Trainee Developer – UI/UX / WordPress</h5>
+                <p class="gradient-text fs-5 mb-0"><a href="https://sharajman.com/" target="_blank" class="text-decoration-none">Sharajman Technologies Private Limited</a></p>
+              </div>
+              <span class="badge bg-secondary">2024 – 2025</span>
+            </div>
+            <p class="text-muted small mb-3">September 2024 – February 2025 · New Delhi, India</p>
+            <ul class="list-unstyled text-muted small">
+              <li class="mb-2"><i class="bi bi-check-circle text-primary me-2"></i>Worked on WordPress customization, templates, and theme development</li>
+              <li class="mb-2"><i class="bi bi-check-circle text-primary me-2"></i>Created modern UI layouts using HTML, CSS, Bootstrap, and responsive design principles</li>
+              <li class="mb-2"><i class="bi bi-check-circle text-primary me-2"></i>Implemented JavaScript-based components, AJAX features, and animations</li>
+              <li class="mb-2"><i class="bi bi-check-circle text-primary me-2"></i>Participated in real-world projects and improved debugging and optimization skills</li>
+              <li><i class="bi bi-check-circle text-primary me-2"></i>Enhanced UI/UX through prototyping and component-level improvements</li>
+            </ul>
+            <div class="mt-3">
+              <span class="badge bg-secondary me-1 mb-1">HTML/CSS</span>
+              <span class="badge bg-secondary me-1 mb-1">Bootstrap</span>
+              <span class="badge bg-secondary me-1 mb-1">JavaScript</span>
+              <span class="badge bg-secondary me-1 mb-1">jQuery</span>
+              <span class="badge bg-secondary me-1 mb-1">UI/UX</span>
+              <span class="badge bg-secondary me-1 mb-1">PHP</span>
+              <span class="badge bg-secondary me-1 mb-1">WordPress</span>
+            </div>
+          </div>
+
+          <!-- Experience Card 3 -->
+          <div class="card glass p-4 mb-4 border-start border-primary border-4">
+            <div class="d-flex justify-content-between align-items-start mb-2">
+              <div>
+                <h5 class="mb-0">PHP Developer Intern</h5>
+                <p class="gradient-text fs-5 mb-0"><a href="https://www.syscomindia.com/" target="_blank" class="text-decoration-none">Syscom Softech Private Limited</a></p>
+              </div>
+              <span class="badge bg-secondary">2024</span>
+            </div>
+            <p class="text-muted small mb-3">February 2024 – June 2024</p>
+            <ul class="list-unstyled text-muted small">
+              <li class="mb-2"><i class="bi bi-check-circle text-primary me-2"></i>Developed web applications using core PHP and MySQL</li>
+              <li class="mb-2"><i class="bi bi-check-circle text-primary me-2"></i>Worked on CRUD operations, backend logic, and validation</li>
+              <li class="mb-2"><i class="bi bi-check-circle text-primary me-2"></i>Learned version control, API handling, and secure coding fundamentals</li>
+              <li><i class="bi bi-check-circle text-primary me-2"></i>Adapted quickly to new frameworks and tools during development</li>
+            </ul>
+            <div class="mt-3">
+              <span class="badge bg-secondary me-1 mb-1">HTML/CSS</span>
+              <span class="badge bg-secondary me-1 mb-1">Bootstrap</span>
+              <span class="badge bg-secondary me-1 mb-1">JavaScript</span>
+              <span class="badge bg-secondary me-1 mb-1">jQuery</span>
+              <span class="badge bg-secondary me-1 mb-1">PHP</span>
+              <span class="badge bg-secondary me-1 mb-1">MySQL</span>
+            </div>
+          </div>
+
+          <!-- Experience Card 4 -->
+          <div class="card glass p-4 border-start border-primary border-4 d-none">
+            <div class="d-flex justify-content-between align-items-start mb-2">
+              <div>
+                <h5 class="mb-0">Java Developer Intern</h5>
+                <p class="gradient-text fs-5 mb-0"><a href="https://technohacks.co.in/" target="_blank" class="text-decoration-none">TechnoHacks EduTech</a></p>
+              </div>
+              <span class="badge bg-secondary">2023</span>
+            </div>
+            <p class="text-muted small mb-3">November 2023 · 1 Month</p>
+            <ul class="list-unstyled text-muted small">
+              <li class="mb-2"><i class="bi bi-check-circle text-primary me-2"></i>Developed small Java applications including games and utility programs</li>
+              <li class="mb-2"><i class="bi bi-check-circle text-primary me-2"></i>Worked on logic building, problem-solving, and OOP concepts</li>
+              <li><i class="bi bi-check-circle text-primary me-2"></i>Completed hands-on tasks like Calculator, Number Guessing Game, and Tic-Tac-Toe</li>
+            </ul>
+            <div class="mt-3">
+              <span class="badge bg-secondary me-1 mb-1">Java</span>
+              <span class="badge bg-secondary me-1 mb-1">OOP</span>
+              <span class="badge bg-secondary me-1 mb-1">Problem Solving</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Stats Section -->
+      <div class="row row-cols-1 row-cols-sm-3 g-3 mt-5 text-center">
+
+        <div class="col">
+          <div class="card glass service-card p-3">
+            <h4 class="gradient-text fw-bold mb-1">1.5+ Years</h4>
+            <p class="text-muted small mb-0">Experience in WordPress & PHP</p>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card glass service-card p-3">
+            <h4 class="gradient-text fw-bold mb-1">UI/UX + Development</h4>
+            <p class="text-muted small mb-0">Strong Frontend & Backend Skills</p>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card glass service-card p-3">
+            <h4 class="gradient-text fw-bold mb-1">Industry-Ready</h4>
+            <p class="text-muted small mb-0">Real Client & Company-Level Experience</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- Portfolio -->
+  <section id="portfolio" class="py-5">
+    <div class="container">
+      <div class="text-center mb-5">
+        <p class="text-uppercase gradient-text small mb-2">My Recent Work</p>
+        <h2 class="fw-bold">Portfolio</h2>
+        <p class="text-muted">Explore some of my recent projects showcasing my skills and creativity</p>
+      </div>
+
+      <div class="row g-4">
+
+        <!-- Card 1 -->
+        <div class="col-sm-6 col-lg-4">
+          <div class="card project-card h-100" data-bs-toggle="modal" data-bs-target="#projectModal1" style="cursor:pointer;">
+            <div class="ratio ratio-16x9 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&q=80" class="w-100 h-100 object-fit-cover" alt="E-Commerce Platform">
+            </div>
+            <div class="card-body">
+              <h5 class="card-title mb-1">E-Commerce Platform</h5>
+              <p class="text-muted small">Modern online shopping experience with cart and checkout</p>
+              <div class="d-flex flex-wrap gap-2 mt-2">
+                <span class="badge bg-secondary">React</span>
+                <span class="badge bg-secondary">Node.js</span>
+                <span class="badge bg-secondary">MongoDB</span>
+                <span class="badge bg-secondary">+1</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="col-sm-6 col-lg-4">
+          <div class="card project-card h-100" data-bs-toggle="modal" data-bs-target="#projectModal2" style="cursor:pointer;">
+            <div class="ratio ratio-16x9 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=1200&q=80" class="w-100 h-100 object-fit-cover" alt="Task Management App">
+            </div>
+            <div class="card-body">
+              <h5 class="card-title mb-1">Task Management App</h5>
+              <p class="text-muted small">Collaborative project management tool for teams</p>
+              <div class="d-flex flex-wrap gap-2 mt-2">
+                <span class="badge bg-secondary">React</span>
+                <span class="badge bg-secondary">TypeScript</span>
+                <span class="badge bg-secondary">Firebase</span>
+                <span class="badge bg-secondary">+1</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="col-sm-6 col-lg-4">
+          <div class="card project-card h-100" data-bs-toggle="modal" data-bs-target="#projectModal3" style="cursor:pointer;">
+            <div class="ratio ratio-16x9 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=80" class="w-100 h-100 object-fit-cover" alt="Portfolio Dashboard">
+            </div>
+            <div class="card-body">
+              <h5 class="card-title mb-1">Portfolio Dashboard</h5>
+              <p class="text-muted small">Investment tracking and analytics dashboard</p>
+              <div class="d-flex flex-wrap gap-2 mt-2">
+                <span class="badge bg-secondary">React</span>
+                <span class="badge bg-secondary">D3.js</span>
+                <span class="badge bg-secondary">REST API</span>
+                <span class="badge bg-secondary">+1</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+    <!-- Modal 1 -->
+    <div class="modal fade" id="projectModal1" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">E-Commerce Platform</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&q=80" class="img-fluid rounded mb-3 w-100" alt="">
+            <p class="text-muted">
+              A full-featured e-commerce platform built with React and Node.js. Includes product catalog, cart, secure checkout, authentication & admin panel.
+            </p>
+            <span class="badge bg-secondary me-1 mb-1">React</span>
+            <span class="badge bg-secondary me-1 mb-1">Node.js</span>
+            <span class="badge bg-secondary me-1 mb-1">MongoDB</span>
+            <span class="badge bg-secondary me-1 mb-1">Stripe</span>
+          </div>
+          <div class="modal-footer justify-content-between">
+            <!-- Replace # with actual URLs or remove if not available -->
+            <a href="https://your-live-demo-url.com" class="btn btn-primary" target="_blank">Live Demo</a>
+            <a href="https://your-source-code-url.com" class="btn btn-outline-secondary" target="_blank">Source Code</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal 2 -->
+    <div class="modal fade" id="projectModal2" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Task Management App</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <img src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=1200&q=80" class="img-fluid rounded mb-3 w-100" alt="">
+            <p class="text-muted">
+              A real-time collaboration and project tracking app with drag-and-drop boards & notifications.
+            </p>
+            <span class="badge bg-secondary me-1 mb-1">React</span>
+            <span class="badge bg-secondary me-1 mb-1">TypeScript</span>
+            <span class="badge bg-secondary me-1 mb-1">Firebase</span>
+            <span class="badge bg-secondary me-1 mb-1">Tailwind</span>
+          </div>
+          <div class="modal-footer justify-content-between">
+            <a href="#" class="btn btn-primary" target="_blank">Live Demo</a>
+            <a href="#" class="btn btn-outline-secondary" target="_blank">Source Code</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal 3 -->
+    <div class="modal fade" id="projectModal3" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Portfolio Dashboard</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=80" class="img-fluid rounded mb-3 w-100" alt="">
+            <p class="text-muted">
+              A professional dashboard for tracking investments with real-time analytics & data visualization.
+            </p>
+            <span class="badge bg-secondary me-1 mb-1">React</span>
+            <span class="badge bg-secondary me-1 mb-1">D3.js</span>
+            <span class="badge bg-secondary me-1 mb-1">REST API</span>
+            <span class="badge bg-secondary me-1 mb-1">SCSS</span>
+          </div>
+          <div class="modal-footer justify-content-between">
+            <a href="#" class="btn btn-primary" target="_blank">Live Demo</a>
+            <a href="#" class="btn btn-outline-secondary" target="_blank">Source Code</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+
+  <!-- Contact -->
+  <section id="contact" class="bg-muted/30 py-5">
+    <div class="container">
+      <div class="text-center mb-5">
+        <p class="text-uppercase gradient-text small mb-2">Get In Touch</p>
+        <h2 class="fw-bold">Contact Me</h2>
+        <p class="text-muted">Looking to build something amazing? I’m ready to collaborate and deliver a high-quality web experience.</p>
+      </div>
+
+      <div class="row g-4 justify-content-center">
+        <div class="col-lg-5">
+          <div class="card glass p-4">
+            <h5>Let's Connect</h5>
+            <p class="text-muted">I’m open to collaborating on exciting web projects — from WordPress development to creative UI solutions — while always looking to grow and contribute in professional environments.</p>
+
+            <div class="list-group list-group-flush">
+              <a href="mailto:mohdrihan6314@gmail.com"
+                class="list-group-item list-group-item-action d-flex align-items-center gap-3">
+                <i class="bi bi-envelope-fill fs-4"></i>
+                <div>
+                  <small class="text-muted">Email</small>
+                  <div class="fw-medium">mohdrihan6314@gmail.com</div>
+                </div>
+              </a>
+              <a href="tel:+919639510107"
+                class="list-group-item list-group-item-action d-flex align-items-center gap-3">
+                <i class="bi bi-telephone-fill fs-4"></i>
+                <div>
+                  <small class="text-muted">Phone</small>
+                  <div class="fw-medium">+91 9639510107</div>
+                </div>
+              </a>
+              <div class="list-group-item d-flex align-items-center gap-3">
+                <i class="bi bi-geo-alt-fill fs-4"></i>
+                <div>
+                  <small class="text-muted">Location</small>
+                  <div class="fw-medium">Noida, India</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card glass mt-3 p-3 text-center">
+            <i class="bi bi-geo-alt-fill fs-3 text-muted"></i>
+            <div class="small text-muted mt-2">Noida, India</div>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="card glass p-4">
+            <h5>Send a Message</h5>
+            <form id="contactForm" class="mt-3">
+              <div class="mb-3">
+                <label for="name" class="form-label">Your Name</label>
+                <input type="text" id="name" name="name" class="form-control" required minlength="2"
+                  placeholder="John Doe">
+              </div>
+              <div class="mb-3">
+                <label for="email" class="form-label">Email Address</label>
+                <input type="email" id="email" name="email" class="form-control" required
+                  placeholder="john@example.com">
+              </div>
+              <div class="mb-3">
+                <label for="message" class="form-label">Your Message</label>
+                <textarea id="message" name="message" class="form-control" rows="5" required minlength="10" placeholder="Tell me what you’re looking for..."></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary w-100">Send Message</button>
+              <p class="text-center text-muted small mt-2">Or email me directly at <a
+                  href="mailto:mohdrihan6314@gmail.com">mohdrihan6314@gmail.com</a></p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-4 border-top">
+    <div class="container d-flex flex-column flex-md-row justify-content-between gap-3">
+      <div>
+        <a href="#home" class="fw-bold text-decoration-none"><span class="gradient-text">RIHAN</span></a>
+        <div class="text-muted small">© <span id="year"></span> Md Rihan. All rights reserved.</div>
+      </div>
+      <div class="d-flex align-items-center gap-3">
+        <div class="text-muted small d-flex align-items-center gap-1">Made with <i
+            class="bi bi-heart-fill text-danger"></i> in India</div>
+        <div class="ms-3 d-flex gap-2">
+          <a href="https://www.linkedin.com/in/md-rihan-92b355252/" target="_blank"
+            class="btn btn-outline-secondary btn-sm rounded-circle"><i class="bi bi-linkedin"></i></a>
+          <a href="https://github.com/md-rihan01" target="_blank" class="btn btn-outline-secondary btn-sm rounded-circle"><i
+              class="bi bi-github"></i></a>
+          <a href="mailto:mohdrihan6314@gmail.com" class="btn btn-outline-secondary btn-sm rounded-circle"><i
+              class="bi bi-envelope-fill"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast for contact success -->
+  <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 1080">
+    <div id="liveToast" class="toast align-items-center text-bg-success border-0" role="alert" aria-live="assertive"
+      aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body">Message Sent! I'll get back to you soon.</div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+          aria-label="Close"></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+
+</html>
