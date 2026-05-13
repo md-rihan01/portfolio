@@ -58,15 +58,13 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
   })
 });
 
-
-
 // -------------------- CONTACT FORM SIMULATION --------------------
 const contactForm = document.getElementById('contactForm');
 const toastEl = document.getElementById('liveToast');
 const toast = new bootstrap.Toast(toastEl);
 
 contactForm.addEventListener('submit', async (e)=>{
-  e.preventDefault();
+  // e.preventDefault();
   const submitBtn = contactForm.querySelector('button[type="submit"]');
   submitBtn.disabled = true;
   submitBtn.textContent = 'Sending...';
@@ -75,6 +73,64 @@ contactForm.addEventListener('submit', async (e)=>{
   submitBtn.textContent = 'Send Message';
   contactForm.reset();
   toast.show();
+});
+
+// -------------------- AJAX CONTACT FORM --------------------
+document.addEventListener("DOMContentLoaded", () => {
+    const form = document.querySelector("#contactForm");
+    const submitButton = form.querySelector("button[type='submit']");
+    const toastEl = document.querySelector("#toastMessage");
+    const toastBody = toastEl.querySelector(".toast-body");
+    const toast = new bootstrap.Toast(toastEl);
+
+    form.addEventListener("submit", async (event) => {
+        event.preventDefault();
+
+        // Disable button and show loading state
+        submitButton.disabled = true;
+        submitButton.innerHTML = `
+            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+            Sending...
+        `;
+
+        const formData = new FormData(form);
+
+        try {
+            const response = await fetch("contact.php", {
+                method: "POST",
+                body: formData,
+            });
+
+            const result = await response.json();
+
+            if (result.status === "success") {
+                // Show success toast
+                toastBody.textContent = "Message Sent! I'll get back to you soon.";
+                toastEl.classList.remove("bg-danger");
+                toastEl.classList.add("bg-success");
+                toast.show();
+
+                // Reset form
+                form.reset();
+            } else {
+                // Show error toast
+                toastBody.textContent = result.message || "Something went wrong. Please try again.";
+                toastEl.classList.remove("bg-success");
+                toastEl.classList.add("bg-danger");
+                toast.show();
+            }
+        } catch (error) {
+            // Handle network errors
+            toastBody.textContent = "Network error. Please try again later.";
+            toastEl.classList.remove("bg-success");
+            toastEl.classList.add("bg-danger");
+            toast.show();
+        } finally {
+            // Restore button state
+            submitButton.disabled = false;
+            submitButton.innerHTML = "Send Message";
+        }
+    });
 });
 
 // -------------------- ANIMATE SKILL BARS WHEN VISIBLE --------------------

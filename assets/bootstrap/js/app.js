@@ -66,7 +66,7 @@ const toastEl = document.getElementById('liveToast');
 const toast = new bootstrap.Toast(toastEl);
 
 contactForm.addEventListener('submit', async (e)=>{
-  e.preventDefault();
+  // e.preventDefault();
   const submitBtn = contactForm.querySelector('button[type="submit"]');
   submitBtn.disabled = true;
   submitBtn.textContent = 'Sending...';
