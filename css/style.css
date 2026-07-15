@@ -348,3 +348,4 @@ body.dark-theme .progress{background:#1f2830}
   background: linear-gradient(90deg, #7c3aed, var(--primary)) !important;
   opacity: 0.9;
 }
+.contact-links{color:inherit !important;text-decoration:none !important}

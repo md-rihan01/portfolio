@@ -186,6 +186,7 @@ footer{background:transparent}
 /* utilities */
 .fw-medium{font-weight:600}
 
+
 /* small responsiveness */
 @media (max-width:767px){
   .hero{min-height:65vh}

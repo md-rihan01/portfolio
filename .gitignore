@@ -1,6 +1,2 @@
-# Node and serverless runtime
-node_modules/
-.vercel/
-.env
-.env.*
+# Ignore editor and OS files
 .DS_Store
