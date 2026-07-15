@@ -60,22 +60,124 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
 
 
 
-// -------------------- CONTACT FORM SIMULATION --------------------
+// -------------------- CONTACT FORM HANDLER --------------------
 const contactForm = document.getElementById('contactForm');
 const toastEl = document.getElementById('liveToast');
-const toast = new bootstrap.Toast(toastEl);
+const toast = toastEl ? new bootstrap.Toast(toastEl) : null;
 
-contactForm.addEventListener('submit', async (e)=>{
-  // e.preventDefault();
+if (contactForm) {
+  const feedbackEl = document.getElementById('contactFeedback');
   const submitBtn = contactForm.querySelector('button[type="submit"]');
-  submitBtn.disabled = true;
-  submitBtn.textContent = 'Sending...';
-  await new Promise(r=>setTimeout(r,900));
-  submitBtn.disabled = false;
-  submitBtn.textContent = 'Send Message';
-  contactForm.reset();
-  toast.show();
-});
+  const timestampInput = document.getElementById('formTimestamp');
+
+  const setFeedback = (message, isSuccess) => {
+    if (!feedbackEl) return;
+    feedbackEl.textContent = message;
+    feedbackEl.className = isSuccess ? 'text-success small' : 'text-danger small';
+  };
+
+  const setButtonState = (isProcessing) => {
+    if (!submitBtn) return;
+    submitBtn.disabled = isProcessing;
+    submitBtn.textContent = isProcessing ? 'Sending...' : 'Send Message';
+  };
+
+  const sanitize = (value) => value.trim();
+
+  const validateEmail = (value) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+  const validatePhone = (value) => value === '' || /^\+?[0-9\s().-]{7,20}$/.test(value);
+
+  contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    setFeedback('', true);
+
+    const apiUrl = contactForm.dataset.apiUrl;
+    if (!apiUrl) {
+      setFeedback('Contact service is not configured. Please try again later.', false);
+      return;
+    }
+
+    const formData = new FormData(contactForm);
+    const rawName = sanitize(formData.get('name') || '');
+    const rawEmail = sanitize(formData.get('email') || '');
+    const rawPhone = sanitize(formData.get('phone') || '');
+    const rawSubject = sanitize(formData.get('subject') || 'New message from portfolio contact form');
+    const rawMessage = sanitize(formData.get('message') || '');
+    const honeypot = sanitize(formData.get('website') || '');
+    const formStartedAt = Number(formData.get('formTimestamp') || '0');
+
+    if (honeypot) {
+      setFeedback('Spam protection prevented submission.', false);
+      return;
+    }
+
+    if (Date.now() - formStartedAt < 3000) {
+      setFeedback('Please take at least a few seconds to complete the form.', false);
+      return;
+    }
+
+    if (!rawName || rawName.length < 2) {
+      setFeedback('Please enter your name.', false);
+      return;
+    }
+
+    if (!validateEmail(rawEmail)) {
+      setFeedback('Please enter a valid email address.', false);
+      return;
+    }
+
+    if (!validatePhone(rawPhone)) {
+      setFeedback('Please enter a valid phone number or leave it blank.', false);
+      return;
+    }
+
+    if (!rawMessage || rawMessage.length < 10) {
+      setFeedback('Please enter a message with at least 10 characters.', false);
+      return;
+    }
+
+    const payload = {
+      name: rawName,
+      email: rawEmail,
+      phone: rawPhone,
+      subject: rawSubject,
+      message: rawMessage,
+    };
+
+    setButtonState(true);
+
+    try {
+      const response = await fetch(apiUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload),
+      });
+
+      const data = await response.json();
+      if (!response.ok) {
+        const errorMessage = data?.error || 'Unable to send your message now. Please try again later.';
+        setFeedback(errorMessage, false);
+        return;
+      }
+
+      setFeedback('Message sent successfully. I’ll reply soon.', true);
+      contactForm.reset();
+      if (timestampInput) timestampInput.value = String(Date.now());
+      toast?.show();
+    } catch (error) {
+      setFeedback('Network error while sending. Check your connection and try again.', false);
+      console.error('Contact form error:', error);
+    } finally {
+      setButtonState(false);
+    }
+  });
+
+  if (timestampInput) {
+    timestampInput.value = String(Date.now());
+  }
+}
 
 // -------------------- ANIMATE SKILL BARS WHEN VISIBLE --------------------
 const skillBars = document.querySelectorAll('.progress-bar[data-progress]');

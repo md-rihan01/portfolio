@@ -58,80 +58,127 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
   })
 });
 
-// -------------------- CONTACT FORM SIMULATION --------------------
+// -------------------- CONTACT FORM HANDLER --------------------
 const contactForm = document.getElementById('contactForm');
 const toastEl = document.getElementById('liveToast');
-const toast = new bootstrap.Toast(toastEl);
+const toast = toastEl ? new bootstrap.Toast(toastEl) : null;
 
-contactForm.addEventListener('submit', async (e)=>{
-  // e.preventDefault();
+if (contactForm) {
+  const feedbackEl = document.getElementById('contactFeedback');
   const submitBtn = contactForm.querySelector('button[type="submit"]');
-  submitBtn.disabled = true;
-  submitBtn.textContent = 'Sending...';
-  await new Promise(r=>setTimeout(r,900));
-  submitBtn.disabled = false;
-  submitBtn.textContent = 'Send Message';
-  contactForm.reset();
-  toast.show();
-});
+  const timestampInput = document.getElementById('formTimestamp');
 
-// -------------------- AJAX CONTACT FORM --------------------
-document.addEventListener("DOMContentLoaded", () => {
-    const form = document.querySelector("#contactForm");
-    const submitButton = form.querySelector("button[type='submit']");
-    const toastEl = document.querySelector("#toastMessage");
-    const toastBody = toastEl.querySelector(".toast-body");
-    const toast = new bootstrap.Toast(toastEl);
+  const setFeedback = (message, isSuccess) => {
+    if (!feedbackEl) return;
+    feedbackEl.textContent = message;
+    feedbackEl.className = isSuccess ? 'text-success small' : 'text-danger small';
+  };
 
-    form.addEventListener("submit", async (event) => {
-        event.preventDefault();
+  const setButtonState = (isProcessing) => {
+    if (!submitBtn) return;
+    submitBtn.disabled = isProcessing;
+    submitBtn.textContent = isProcessing ? 'Sending...' : 'Send Message';
+  };
 
-        // Disable button and show loading state
-        submitButton.disabled = true;
-        submitButton.innerHTML = `
-            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-            Sending...
-        `;
+  const sanitize = (value) => (typeof value === 'string' ? value.trim() : '');
+  const validateEmail = (value) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+  const validatePhone = (value) => value === '' || /^\+?[0-9\s().-]{7,20}$/.test(value);
 
-        const formData = new FormData(form);
+  contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    setFeedback('', true);
 
-        try {
-            const response = await fetch("contact.php", {
-                method: "POST",
-                body: formData,
-            });
+    const apiUrl = contactForm.dataset.apiUrl;
+    if (!apiUrl) {
+      setFeedback('Contact service is not configured. Please try again later.', false);
+      return;
+    }
 
-            const result = await response.json();
+    if (apiUrl.includes('<YOUR_SERVERLESS_URL>')) {
+      setFeedback('Configure the contact API URL first. Replace <YOUR_SERVERLESS_URL> with your deployed endpoint or local dev URL.', false);
+      return;
+    }
 
-            if (result.status === "success") {
-                // Show success toast
-                toastBody.textContent = "Message Sent! I'll get back to you soon.";
-                toastEl.classList.remove("bg-danger");
-                toastEl.classList.add("bg-success");
-                toast.show();
+    const formData = new FormData(contactForm);
+    const rawName = sanitize(formData.get('name') || '');
+    const rawEmail = sanitize(formData.get('email') || '');
+    const rawPhone = sanitize(formData.get('phone') || '');
+    const rawSubject = sanitize(formData.get('subject') || 'New message from portfolio contact form');
+    const rawMessage = sanitize(formData.get('message') || '');
+    const honeypot = sanitize(formData.get('website') || '');
+    const formStartedAt = Number(formData.get('formTimestamp') || '0');
 
-                // Reset form
-                form.reset();
-            } else {
-                // Show error toast
-                toastBody.textContent = result.message || "Something went wrong. Please try again.";
-                toastEl.classList.remove("bg-success");
-                toastEl.classList.add("bg-danger");
-                toast.show();
-            }
-        } catch (error) {
-            // Handle network errors
-            toastBody.textContent = "Network error. Please try again later.";
-            toastEl.classList.remove("bg-success");
-            toastEl.classList.add("bg-danger");
-            toast.show();
-        } finally {
-            // Restore button state
-            submitButton.disabled = false;
-            submitButton.innerHTML = "Send Message";
-        }
-    });
-});
+    if (honeypot) {
+      setFeedback('Spam protection prevented submission.', false);
+      return;
+    }
+
+    if (formStartedAt && Date.now() - formStartedAt < 3000) {
+      setFeedback('Please take a few seconds to complete the form before sending.', false);
+      return;
+    }
+
+    if (!rawName || rawName.length < 2) {
+      setFeedback('Please enter your name.', false);
+      return;
+    }
+
+    if (!validateEmail(rawEmail)) {
+      setFeedback('Please enter a valid email address.', false);
+      return;
+    }
+
+    if (!validatePhone(rawPhone)) {
+      setFeedback('Please enter a valid phone number or leave it blank.', false);
+      return;
+    }
+
+    if (!rawMessage || rawMessage.length < 10) {
+      setFeedback('Please enter a message with at least 10 characters.', false);
+      return;
+    }
+
+    setButtonState(true);
+
+    try {
+      const response = await fetch(apiUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: rawName,
+          email: rawEmail,
+          phone: rawPhone,
+          subject: rawSubject,
+          message: rawMessage,
+          website: honeypot,
+          formTimestamp: formStartedAt,
+        }),
+      });
+
+      const result = await response.json();
+      if (!response.ok) {
+        setFeedback(result.error || 'Unable to send your message now. Please try again later.', false);
+        return;
+      }
+
+      setFeedback('Message sent successfully. I’ll reply soon.', true);
+      contactForm.reset();
+      if (timestampInput) timestampInput.value = String(Date.now());
+      toast?.show();
+    } catch (error) {
+      console.error('Contact form submission error:', error);
+      setFeedback('Network error while sending. Please try again later.', false);
+    } finally {
+      setButtonState(false);
+    }
+  });
+
+  if (timestampInput) {
+    timestampInput.value = String(Date.now());
+  }
+}
 
 // -------------------- ANIMATE SKILL BARS WHEN VISIBLE --------------------
 const skillBars = document.querySelectorAll('.progress-bar[data-progress]');
