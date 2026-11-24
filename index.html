@@ -178,7 +178,14 @@
                   <div class="progress-bar bg-primary" role="progressbar" data-progress="80" style="width: 0%"></div>
                 </div>
               </div>
-
+              <div class="mb-3 skill-row">
+                <div class="d-flex justify-content-between">
+                  <span>AI &amp; Agentic AI</span><small class="text-muted">40%</small>
+                </div>
+                <div class="progress">
+                  <div class="progress-bar bg-primary" role="progressbar" data-progress="40" style="width: 0%"></div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -434,6 +441,45 @@
 
       <div class="row g-4">
 
+        <!-- AI Shopping Assistant -->
+        <div class="col-sm-6 col-lg-4">
+          <div class="card project-card h-100" data-bs-toggle="modal" data-bs-target="#projectModal4" style="cursor:pointer;">
+            <div class="ratio ratio-16x9 overflow-hidden">
+              <img src="assets/images/AI Grocery Shopping Assistant.png" class="w-100 h-100 object-fit-cover" alt="A bowl of oats, representing image-based product search">
+            </div>
+            <div class="card-body">
+              <h5 class="card-title mb-1">AI Shopping Assistant</h5>
+              <p class="text-muted small">Search a product catalog by text or uploaded image, compare ratings, and place confirmed orders.</p>
+              <div class="d-flex flex-wrap gap-2 mt-2">
+                <span class="badge bg-secondary">Python</span>
+                <span class="badge bg-secondary">Streamlit</span>
+                <span class="badge bg-secondary">LangChain</span>
+                <span class="badge bg-secondary">Groq</span>
+                <span class="badge bg-secondary">SQLite</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Blood Work Analyzer -->
+        <div class="col-sm-6 col-lg-4">
+          <div class="card project-card h-100" data-bs-toggle="modal" data-bs-target="#projectModal5" style="cursor:pointer;">
+            <div class="ratio ratio-16x9 overflow-hidden">
+              <img src="assets/images/AI-Powered Blood Work Analyzer.png" class="w-100 h-100 object-fit-cover" alt="A blood test report, representing the Blood Work Analyzer project">
+            </div>
+            <div class="card-body">
+              <h5 class="card-title mb-1">Blood Work Analyzer</h5>
+              <p class="text-muted small">Summarize pasted lab results in plain language and suggest practical Indian diet ideas with an AI workflow.</p>
+              <div class="d-flex flex-wrap gap-2 mt-2">
+                <span class="badge bg-secondary">Python</span>
+                <span class="badge bg-secondary">Streamlit</span>
+                <span class="badge bg-secondary">LangChain-Groq</span>
+                <span class="badge bg-secondary">Prompt Engineering</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <!-- Card 1 -->
         <div class="col-sm-6 col-lg-4">
           <div class="card project-card h-100" data-bs-toggle="modal" data-bs-target="#projectModal1" style="cursor:pointer;">
@@ -569,6 +615,56 @@
           <div class="modal-footer justify-content-between">
             <a href="#" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Live Demo</a>
             <a href="#" class="btn btn-outline-secondary" target="_blank" rel="noopener noreferrer">Source Code</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- AI Shopping Assistant Modal -->
+    <div class="modal fade" id="projectModal4" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">AI Shopping Assistant</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <img src="assets/images/AI Grocery Shopping Assistant.png" class="img-fluid rounded mb-3 w-100" alt="AI Shopping Assistant project preview">
+            <p class="text-muted">Search a SQLite product catalog by text or product photo, compare customer ratings, filter by price or organic status, and place an order after confirmation.</p>
+            <span class="badge bg-secondary me-1 mb-1">Python</span>
+            <span class="badge bg-secondary me-1 mb-1">Streamlit</span>
+            <span class="badge bg-secondary me-1 mb-1">LangChain</span>
+            <span class="badge bg-secondary me-1 mb-1">Groq API</span>
+            <span class="badge bg-secondary me-1 mb-1">SQLite</span>
+          </div>
+          <div class="modal-footer justify-content-between">
+            <a href="https://shopping-aiagent.streamlit.app/" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Live Demo</a>
+            <a href="https://github.com/md-rihan01/shopping-agent" class="btn btn-outline-secondary" target="_blank" rel="noopener noreferrer">Source Code</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Blood Work Analyzer Modal -->
+    <div class="modal fade" id="projectModal5" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Blood Work Analyzer</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <img src="assets/images/AI-Powered Blood Work Analyzer.png" class="img-fluid rounded mb-3 w-100" alt="Blood Work Analyzer project preview">
+            <p class="text-muted">Analyze pasted blood work values and generate a plain-language summary with practical Indian diet suggestions. This project is an educational aid, not a diagnostic tool.</p>
+            <span class="badge bg-secondary me-1 mb-1">Python</span>
+            <span class="badge bg-secondary me-1 mb-1">Streamlit</span>
+            <span class="badge bg-secondary me-1 mb-1">LangChain-Groq</span>
+            <span class="badge bg-secondary me-1 mb-1">Groq API</span>
+            <span class="badge bg-secondary me-1 mb-1">Prompt Engineering</span>
+          </div>
+          <div class="modal-footer justify-content-between">
+            <a href="https://health-analysis-spkld846fsf9dtzoxqhlss.streamlit.app/" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Live Demo</a>
+            <a href="https://github.com/md-rihan01/health-analysis" class="btn btn-outline-secondary" target="_blank" rel="noopener noreferrer">Source Code</a>
           </div>
         </div>
       </div>
